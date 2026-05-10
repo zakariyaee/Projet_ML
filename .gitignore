@@ -1,0 +1,14 @@
+# Clés API et variables d'environnement
+.env
+
+# Données brutes (trop lourdes)
+data/raw/
+*.json
+
+# Fichiers Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Logs
+data_collection.log
