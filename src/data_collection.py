@@ -140,7 +140,7 @@ def fetch_page(page: int, session: requests.Session, max_retries: int = 3) -> di
             # Envoi de la requete avec timeout de 60 secondes
             response = session.get(BASE_URL, params=params, timeout=60)
 
-            # Log de l'appel API (timestamp, endpoint, statut) — exigence prof
+            # Log de l'appel API (timestamp, endpoint, statut)
             remaining = response.headers.get("X-RateLimit-Remaining", "?")
             log.info(
                 f"API Call | Page {page:4d} | Status {response.status_code} | "
@@ -242,7 +242,7 @@ def collect_raw_data(target_rows: int) -> List[Dict]:
             )
 
             # --- SAUVEGARDE REGULIERE DES DONNEES BRUTES ---
-            # Exigence prof : sauvegarder regulierement le dataset partiel
+            # sauvegarder regulierement le dataset partiel
             # en cas d'interruption. Format JSON pour eviter de re-requerter.
             if (i + 1) % 50 == 0 and raw_objects:
                 with open(RAW_JSON, "w", encoding="utf-8") as f:
@@ -268,7 +268,7 @@ def collect_raw_data(target_rows: int) -> List[Dict]:
         time.sleep(SLEEP_BETWEEN)
 
     # --- SAUVEGARDE FINALE DES DONNEES BRUTES ---
-    # Exigence prof : sauvegarder les donnees brutes au format JSON
+    # sauvegarder les donnees brutes au format JSON
     # pour eviter de re-requerter a chaque execution.
     if raw_objects:
         with open(RAW_JSON, "w", encoding="utf-8") as f:
