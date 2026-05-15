@@ -166,7 +166,7 @@ Six features supplémentaires ont été construites à partir des features brute
 
 **Graphique de distribution** :
 
-![Distribution des classes](notebooks/dist_classes.jpeg)
+![Distribution des classes](notebooks/distribution_cible.png)
 
 > **Lecture du graphique** : 18 049 astéroïdes non dangereux (90,25 %) contre 1 951 PHAs (9,75 %). Ratio de déséquilibre réel mesuré : **9,3:1**.
 
