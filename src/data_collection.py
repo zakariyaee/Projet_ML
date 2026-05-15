@@ -8,7 +8,6 @@ Ce script est concu pour etre :
     - Reproductible : memes parametres = memes resultats
     - Documente : docstrings et commentaires pour chaque fonction
     - Robuste : gestion des erreurs, retry, reprise automatique
-    - Conforme aux exigences du projet de fin de module Machine Learning
 
 Objectif  : collecter ~20 000 asteroides via l'endpoint /neo/browse,
             sauvegarder les donnees brutes en JSON,
@@ -16,9 +15,8 @@ Objectif  : collecter ~20 000 asteroides via l'endpoint /neo/browse,
             et generer un dataset CSV pret pour la Phase 2.
 
 API       : NASA NeoWs — https://api.nasa.gov/neo/rest/v1/neo/browse
-Auteur    : [Votre nom]
+Auteur    : [Ferdaouss Bouchennou - Zakariyae El Allouche - Sanae Tafraouti]
 Date      : 2025-2026
-Version   : 4.0-json (JSON brut non compresse, conforme exigences professeur)
 """
 
 import os
@@ -70,7 +68,7 @@ RAW_DIR: Path = DATA_DIR / "raw"
 """Repertoire des donnees brutes (JSON)."""
 
 RAW_JSON: Path = RAW_DIR / "asteroids_raw.json"
-"""Fichier de sauvegarde des donnees brutes au format JSON (exigence professeur)."""
+"""Fichier de sauvegarde des donnees brutes au format JSON."""
 
 DATASET_CSV: Path = DATA_DIR / "dataset.csv"
 """Dataset final tabulaire au format CSV."""
@@ -88,7 +86,7 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 # CONFIGURATION DU LOGGING
 # ============================================================================
 # Chaque appel API est loggue avec timestamp, endpoint et statut pour faciliter
-# le debug en cas de probleme (conseil pratique du professeur).
+# le debug en cas de probleme.
 
 logging.basicConfig(
     level=logging.INFO,
