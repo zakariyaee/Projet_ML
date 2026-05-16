@@ -1,7 +1,7 @@
 # Documentation du Dataset - Astéroïdes Potentiellement Dangereux (PHAs)
 
 **Module** : Machine Learning — Projet de Fin de Module  
-**Encadrant** : Pr. Y. EL YOUNOUSSI  
+**Encadrant** : Pr. Yacine EL YOUNOUSSI
 **Année académique** : 2025–2026  
 
 ---

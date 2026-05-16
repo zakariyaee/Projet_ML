@@ -1,7 +1,7 @@
 # Fiche de Cadrage - Classification des Astéroïdes Potentiellement Dangereux (PHAs)
 
 **Module** : Machine Learning - Projet de Fin de Module  
-**Encadrant** : Pr. Y. EL YOUNOUSSI  
+**Encadrant** : Pr. Yacine EL YOUNOUSSI
 **Auteurs** : Bouchennou Ferdaouss · El Allouche Zakariyae · Tafraouti Sanae  
 **Année académique** : 2025–2026  
 **Version** : 1.0 - Phase 1  
