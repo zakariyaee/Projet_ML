@@ -13,7 +13,6 @@ import pandas as pd
 
 from sklearn.base import clone
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -30,6 +29,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.svm import LinearSVC
 from sklearn.tree import DecisionTreeClassifier
+
+try:
+    from xgboost import XGBClassifier
+except ImportError as exc:
+    XGBClassifier = None
+    XGBOOST_IMPORT_ERROR = exc
+else:
+    XGBOOST_IMPORT_ERROR = None
 from sklearn.utils.class_weight import compute_sample_weight
 
 TARGET = "is_potentially_hazardous"
@@ -84,13 +91,29 @@ def make_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
     )
 
 
+def make_xgboost(random_state: int = RANDOM_STATE) -> Any:
+    if XGBClassifier is None:
+        raise ImportError(
+            "XGBoost n'est pas installe. Installe-le avec: "
+            "conda install -c conda-forge xgboost  ou  pip install xgboost"
+        ) from XGBOOST_IMPORT_ERROR
+    return XGBClassifier(
+        n_estimators=200,
+        learning_rate=0.05,
+        max_depth=4,
+        subsample=0.9,
+        colsample_bytree=0.9,
+        eval_metric="logloss",
+        random_state=random_state,
+        n_jobs=-1,
+    )
+
+
 def estimator_catalog(random_state: int = RANDOM_STATE) -> Dict[str, Any]:
     return {
         "M1_LogisticRegression": LogisticRegression(max_iter=2000, solver="lbfgs", random_state=random_state),
         "M2_DecisionTree": DecisionTreeClassifier(max_depth=6, min_samples_leaf=20, random_state=random_state),
-        "M3_HistGradientBoosting": HistGradientBoostingClassifier(
-            learning_rate=0.06, max_iter=120, max_leaf_nodes=31, random_state=random_state
-        ),
+        "M3_XGBoost": make_xgboost(random_state),
         "M4_LinearSVM": LinearSVC(C=1.0, class_weight=None, random_state=random_state, max_iter=5000),
         "M4_MLP_optional": MLPClassifier(
             hidden_layer_sizes=(48, 24), alpha=1e-4, max_iter=180, early_stopping=True, random_state=random_state
@@ -186,7 +209,7 @@ def fit_strategy(pipe: Pipeline, X_train: pd.DataFrame, y_train: pd.Series, stra
 def modeling_configurations() -> List[Dict[str, str]]:
     return [
         {"model_key": model_key, "strategy": strategy}
-        for model_key in ["M1_LogisticRegression", "M2_DecisionTree", "M3_HistGradientBoosting", "M4_LinearSVM"]
+        for model_key in ["M1_LogisticRegression", "M2_DecisionTree", "M3_XGBoost", "M4_LinearSVM"]
         for strategy in ["baseline", "class_weight", "oversample"]
     ]
 
@@ -245,9 +268,16 @@ def tune_estimator(model_key: str, strategy: str, X_train: pd.DataFrame, y_train
     elif model_key == "M2_DecisionTree":
         param_grid = {"model__max_depth": [3, 4, 5, 6, 8, 10], "model__min_samples_leaf": [5, 10, 20, 40], "model__criterion": ["gini", "entropy"]}
         search = GridSearchCV(base_pipe, param_grid, scoring="f1", cv=5, n_jobs=-1)
-    elif model_key == "M3_HistGradientBoosting":
-        param_grid = {"model__learning_rate": [0.03, 0.06, 0.10], "model__max_iter": [80, 120, 180], "model__max_leaf_nodes": [15, 31, 63], "model__l2_regularization": [0.0, 0.05, 0.10]}
-        search = RandomizedSearchCV(base_pipe, param_grid, n_iter=12, scoring="f1", cv=5, n_jobs=-1, random_state=RANDOM_STATE)
+    elif model_key == "M3_XGBoost":
+        param_grid = {
+            "model__n_estimators": [100, 200, 300],
+            "model__learning_rate": [0.03, 0.05, 0.10],
+            "model__max_depth": [3, 4, 5],
+            "model__subsample": [0.8, 0.9, 1.0],
+            "model__colsample_bytree": [0.8, 0.9, 1.0],
+            "model__scale_pos_weight": [1, 5, 9],
+        }
+        search = RandomizedSearchCV(base_pipe, param_grid, n_iter=15, scoring="f1", cv=5, n_jobs=-1, random_state=RANDOM_STATE)
     else:
         search = GridSearchCV(base_pipe, {"model__C": [0.1, 0.5, 1.0, 2.0]}, scoring="f1", cv=5, n_jobs=-1)
 
