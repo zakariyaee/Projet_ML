@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+joblib
+matplotlib
+seaborn
+imbalanced-learn
+# Optionnel si disponible dans votre environnement :
+# xgboost
+# lightgbm
