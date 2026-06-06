@@ -1,8 +1,35 @@
 
 services:
+  api:
+    build: .
+    container_name: ml_projet_api
+    command: uvicorn app.api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
+
+  ui:
+    build: .
+    container_name: ml_projet_ui
+    command: streamlit run app/ui.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app/src
+    depends_on:
+      - api
+    restart: unless-stopped
+
   ml-notebook:
     build: .
     container_name: ml_projet_notebook
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
     ports:
       - "8888:8888"
     volumes:

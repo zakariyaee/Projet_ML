@@ -10,3 +10,8 @@ notebook
 ipykernel
 xgboost
 lightgbm
+fastapi
+uvicorn
+pydantic
+streamlit
+python-multipart
