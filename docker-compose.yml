@@ -1,0 +1,12 @@
+
+services:
+  ml-notebook:
+    build: .
+    container_name: ml_projet_notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
