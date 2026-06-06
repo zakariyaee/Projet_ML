@@ -29,7 +29,7 @@ Les statistiques d'imputation et de scaling du pipeline sont **ajustées sur le 
 |----------|------|------------|----------------------|-------------------|---------------|
 | `is_potentially_hazardous` | Cible | Aucune imputation | — | — | Label NASA natif |
 | `absolute_magnitude_h` | Numérique | Médiane (collecte) | Outliers conservés | StandardScaler | Taille/brillance ; outliers = grands NEO |
-| `estimated_diameter_min_km` | Numérique | Médiane | Conservés | StandardScaler | Borne basse diamètre |
+| `estimated_diameter_min_km` | ~~Numérique~~ | Médiane | **Supprimée** (multicolinéarité > 0.95 avec `diameter_mean_km`) | — | Redondante avec la feature ingéniée `diameter_mean_km` |
 | `is_sentry_object` | Binaire | Conversion 0/1 | — | StandardScaler | Surveillance impact |
 | `relative_velocity_km_per_second` | Numérique | Médiane | Conservés | StandardScaler | Énergie cinétique relative |
 | `miss_distance_astronomical` | Numérique | Médiane | Conservés | StandardScaler | Proximité passage |
@@ -38,11 +38,11 @@ Les statistiques d'imputation et de scaling du pipeline sont **ajustées sur le 
 | `min_miss_distance_au` | Numérique | Médiane | Conservés | StandardScaler | Proxy MOID |
 | `max_velocity_km_s` | Numérique | Médiane | Conservés | StandardScaler | Vitesse max historique |
 | `semi_major_axis` | Numérique | Médiane | Conservés | StandardScaler | Taille orbitale |
-| `eccentricity` | Numérique | Médiane | Conservés | StandardScaler | Ellipticité |
+| `eccentricity` | ~~Numérique~~ | Médiane | **Supprimée** (multicolinéarité > 0.95 avec `perihelion_to_aphelion_ratio`) | — | Redondante avec la feature ingéniée `perihelion_to_aphelion_ratio` |
 | `inclination` | Numérique | Médiane | Conservés | StandardScaler | Inclinaison orbitale |
 | `perihelion_distance` | Numérique | Médiane | Conservés | StandardScaler | Critère NEO |
-| `aphelion_distance` | Numérique | Médiane | Conservés | StandardScaler | Aphélie |
-| `orbital_period` | Numérique | Médiane | Conservés | StandardScaler | Période de révolution |
+| `aphelion_distance` | ~~Numérique~~ | Médiane | **Supprimée** (multicolinéarité > 0.95 avec `semi_major_axis`) | — | Redondante avec `semi_major_axis` (3ᵉ loi de Kepler) |
+| `orbital_period` | ~~Numérique~~ | Médiane | **Supprimée** (multicolinéarité > 0.95 avec `semi_major_axis`) | — | Redondante avec `semi_major_axis` (3ᵉ loi de Kepler) |
 | `perihelion_argument` | Numérique | Médiane | Conservés | StandardScaler | Orientation orbite |
 | `orbit_uncertainty` | Numérique | Médiane | Conservés | StandardScaler | Qualité orbitale JPL |
 | `minimum_orbit_intersection` | Numérique | Médiane | Conservés | StandardScaler | **Critère NASA #2 (MOID)** — feature signal |
