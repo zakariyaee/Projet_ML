@@ -1,0 +1,4 @@
+absolute_magnitude_h,is_sentry_object,relative_velocity_km_per_second,miss_distance_astronomical,orbiting_body,n_approaches,min_miss_distance_au,max_velocity_km_s,semi_major_axis,inclination,perihelion_distance,perihelion_argument,orbit_uncertainty,minimum_orbit_intersection,data_arc_in_days,orbit_class_type,diameter_mean_km,diameter_uncertainty,perihelion_to_aphelion_ratio,threat_ratio,velocity_distance_ratio,observation_reliability
+16.53,0,26.25,0.106,EARTH,18,0.039,34.13,1.078,22.8,0.186,31.43,0.0,0.033,27807.0,APO,2.12,1.62,0.094,0.015,245.43,0.0
+10.39,0,3.98,0.387,EARTH,34,0.149,6.08,2.05,5.2,0.85,120.4,0.0,0.148,46582.0,AMO,35.9,27.4,0.63,0.004,10.28,0.0
+15.59,0,3.75,1.82,JUPTR,8,1.38,5.00,3.12,10.1,1.52,45.2,0.0,0.201,41839.0,AMO,3.27,2.50,0.29,0.061,2.05,0.0

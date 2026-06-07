@@ -39,7 +39,6 @@ app = FastAPI(
 # Schema Pydantic pour la prediction unitaire
 class AsteroidFeatures(BaseModel):
     absolute_magnitude_h: float
-    estimated_diameter_min_km: float
     is_sentry_object: int
     relative_velocity_km_per_second: float
     miss_distance_astronomical: float
@@ -48,11 +47,8 @@ class AsteroidFeatures(BaseModel):
     min_miss_distance_au: float
     max_velocity_km_s: float
     semi_major_axis: float
-    eccentricity: float
     inclination: float
     perihelion_distance: float
-    aphelion_distance: float
-    orbital_period: float
     perihelion_argument: float
     orbit_uncertainty: float
     minimum_orbit_intersection: float
@@ -69,7 +65,6 @@ class AsteroidFeatures(BaseModel):
         "json_schema_extra": {
             "example": {
                 "absolute_magnitude_h": 16.53,
-                "estimated_diameter_min_km": 1.31,
                 "is_sentry_object": 0,
                 "relative_velocity_km_per_second": 26.25,
                 "miss_distance_astronomical": 0.106,
@@ -78,11 +73,8 @@ class AsteroidFeatures(BaseModel):
                 "min_miss_distance_au": 0.039,
                 "max_velocity_km_s": 34.13,
                 "semi_major_axis": 1.078,
-                "eccentricity": 0.827,
                 "inclination": 22.8,
                 "perihelion_distance": 0.186,
-                "aphelion_distance": 1.96,
-                "orbital_period": 408.83,
                 "perihelion_argument": 31.43,
                 "orbit_uncertainty": 0.0,
                 "minimum_orbit_intersection": 0.033,

@@ -52,7 +52,6 @@ with tab2:
         with col1:
             st.subheader("Caractéristiques Physiques")
             absolute_magnitude_h = st.number_input("Magnitude absolue (H)", value=16.53)
-            estimated_diameter_min_km = st.number_input("Diamètre min estimé (km)", value=1.31)
             diameter_mean_km = st.number_input("Diamètre moyen (km)", value=2.12)
             diameter_uncertainty = st.number_input("Incertitude du diamètre (km)", value=1.62)
             
@@ -70,11 +69,8 @@ with tab2:
             st.subheader("Paramètres Orbitaux")
             orbit_class_type = st.selectbox("Classe d'orbite", ["APO", "ATE", "AMO", "UNKNOWN"])
             semi_major_axis = st.number_input("Demi-grand axe (UA)", value=1.078)
-            eccentricity = st.number_input("Excentricité", value=0.827)
             inclination = st.number_input("Inclinaison (degrés)", value=22.8)
             perihelion_distance = st.number_input("Distance au périhélie (UA)", value=0.186)
-            aphelion_distance = st.number_input("Distance à l'aphélie (UA)", value=1.96)
-            orbital_period = st.number_input("Période orbitale (jours)", value=408.83)
             perihelion_argument = st.number_input("Argument du périhélie (degrés)", value=31.43)
             minimum_orbit_intersection = st.number_input("MOID (UA)", value=0.033)
             
@@ -95,7 +91,6 @@ with tab2:
         # Preparer le payload
         payload = {
             "absolute_magnitude_h": absolute_magnitude_h,
-            "estimated_diameter_min_km": estimated_diameter_min_km,
             "is_sentry_object": int(is_sentry_object),
             "relative_velocity_km_per_second": relative_velocity_km_per_second,
             "miss_distance_astronomical": miss_distance_astronomical,
@@ -104,11 +99,8 @@ with tab2:
             "min_miss_distance_au": min_miss_distance_au,
             "max_velocity_km_s": max_velocity_km_s,
             "semi_major_axis": semi_major_axis,
-            "eccentricity": eccentricity,
             "inclination": inclination,
             "perihelion_distance": perihelion_distance,
-            "aphelion_distance": aphelion_distance,
-            "orbital_period": orbital_period,
             "perihelion_argument": perihelion_argument,
             "orbit_uncertainty": orbit_uncertainty,
             "minimum_orbit_intersection": minimum_orbit_intersection,
