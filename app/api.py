@@ -128,15 +128,15 @@ async def root():
     <html>
         <head><title>API Classification PHAs</title></head>
         <body style="font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto;">
-            <h1>🌍 API de Classification des Astéroïdes Potentiellement Dangereux (PHAs)</h1>
+            <h1>API de Classification des Astéroïdes Potentiellement Dangereux (PHAs)</h1>
             <p>Cette API permet de prédire si un astéroïde est potentiellement dangereux
             en se basant sur ses caractéristiques orbitales et physiques.</p>
             <h2>Liens utiles</h2>
             <ul>
-                <li><a href="/docs">📖 Documentation Swagger (Interface de test)</a></li>
-                <li><a href="/redoc">📄 Documentation ReDoc</a></li>
-                <li><a href="/health">❤️ État de santé de l'API</a></li>
-                <li><a href="/model/info">🧠 Informations sur le modèle</a></li>
+                <li><a href="/docs">Documentation Swagger (Interface de test)</a></li>
+                <li><a href="/redoc">Documentation ReDoc</a></li>
+                <li><a href="/health">État de santé de l'API</a></li>
+                <li><a href="/model/info">Informations sur le modèle</a></li>
             </ul>
             <p><em>Projet ML — ENSA Tétouan — Pr. Y. EL YOUNOUSSI — 2025-2026</em></p>
         </body>
