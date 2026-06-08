@@ -1,0 +1,35 @@
+# Données brutes et volumineuses
+data/
+*.csv
+
+# Notebooks (pas nécessaires en production)
+notebooks/
+*.ipynb
+
+# Git
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# Environnement
+.env
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Fichiers temporaires
+*.tmp
+*.bak
+
+# Documentation source (pas nécessaire dans l'image)
+*.md
+!README.md
