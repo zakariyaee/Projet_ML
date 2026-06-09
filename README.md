@@ -2,7 +2,7 @@
 
 Système de Machine Learning pour identifier les astéroïdes géocroiseurs potentiellement dangereux (PHAs) à partir de leurs caractéristiques orbitales et physiques. Le modèle est exposé via une API REST (FastAPI) et une interface utilisateur (Streamlit).
 
-**Projet de fin de module Machine Learning** — ENSA Tétouan — Pr. Y. EL YOUNOUSSI — 2025-2026
+**Projet de fin de module Machine Learning** - ENSA Tétouan - Pr. Yacine EL YOUNOUSSI - 2025-2026
 
 **Auteurs** : Bouchennou Ferdaouss · El Allouche Zakariyae · Tafraouti Sanae
 
