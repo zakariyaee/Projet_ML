@@ -1,4 +1,4 @@
-# 🌍 Classification des Astéroïdes Potentiellement Dangereux (PHAs)
+# Classification des Astéroïdes Potentiellement Dangereux (PHAs)
 
 Système de Machine Learning pour identifier les astéroïdes géocroiseurs potentiellement dangereux (PHAs) à partir de leurs caractéristiques orbitales et physiques. Le modèle est exposé via une API REST (FastAPI) et une interface utilisateur (Streamlit).
 
@@ -8,7 +8,7 @@ Système de Machine Learning pour identifier les astéroïdes géocroiseurs pote
 
 ---
 
-## 📸 Captures d'écran
+## Captures d'écran
 
 ### Interface de prédiction unitaire
 L'utilisateur saisit les caractéristiques d'un astéroïde et obtient une prédiction claire ("ALERTE ROUGE" ou "SÉCURISÉ") avec la probabilité et le niveau de confiance.
@@ -18,7 +18,7 @@ L'API expose une documentation interactive accessible à `http://localhost:8000/
 
 ---
 
-## 🏗️ Architecture du dépôt
+## Architecture du dépôt
 
 ```
 Projet_ML/
@@ -58,7 +58,7 @@ Projet_ML/
 
 ---
 
-## 🚀 Installation et lancement
+## Installation et lancement
 
 ### Option 1 : Sans Docker (développement local)
 
@@ -98,7 +98,7 @@ docker-compose up --build
 
 ---
 
-## 🧪 Exemple d'utilisation
+## Exemple d'utilisation
 
 ### Test avec curl
 
@@ -156,7 +156,7 @@ curl -X POST http://localhost:8000/predict/batch \
 
 ---
 
-## 📖 Documentation Swagger
+## Documentation Swagger
 
 Une fois l'API lancée, la documentation interactive est accessible à :
 - **Swagger UI** : [http://localhost:8000/docs](http://localhost:8000/docs)
@@ -164,7 +164,7 @@ Une fois l'API lancée, la documentation interactive est accessible à :
 
 ---
 
-## 🧠 Modèle
+## Modèle
 
 | Élément | Détail |
 |---------|--------|
@@ -176,7 +176,7 @@ Une fois l'API lancée, la documentation interactive est accessible à :
 
 ---
 
-## ⚠️ Limites connues du modèle
+## Limites connues du modèle
 
 1. **Biais temporel** : Le modèle est entraîné sur des données collectées à un instant donné via l'API NASA NeoWs. Les nouveaux astéroïdes découverts après cette date ne sont pas pris en compte.
 2. **Dépendance aux features ingéniées** : Les variables `threat_ratio`, `velocity_distance_ratio`, etc. doivent être recalculées correctement pour de nouvelles données.
@@ -185,6 +185,6 @@ Une fois l'API lancée, la documentation interactive est accessible à :
 
 ---
 
-## 📄 Licence
+## Licence
 
 Ce projet est réalisé dans un cadre académique (ENSA Tétouan, 2025-2026). Toute réutilisation doit mentionner les auteurs et le contexte d'origine.
