@@ -4,6 +4,8 @@
 # Données brutes (trop lourdes)
 data/raw/
 *.json
+!models/final_model_metadata.json
+!models/tuning_metadata.json
 
 # Fichiers Python
 __pycache__/
