@@ -927,7 +927,7 @@ with tab1:
     </div>
     <div class="info-row">
         <span class="info-row-key">Tuning</span>
-        <span class="info-row-val">GridSearchCV 5-fold</span>
+        <span class="info-row-val">RandomizedSearchCV 5-fold</span>
     </div>
     <div class="info-row">
         <span class="info-row-key">Source données</span>
