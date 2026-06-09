@@ -1,0 +1,20 @@
+{
+  "model_key": "XGBClassifier",
+  "threshold": 0.13,
+  "strategy": "Baseline",
+  "target": "is_potentially_hazardous",
+  "test_report": {
+    "note": "Voir notebook 06_evaluation.ipynb pour les metriques completes.",
+    "accuracy": 0.99875,
+    "PHA": {
+      "precision": 0.9935897435897436,
+      "recall": 0.9935897435897436,
+      "f1-score": 0.9935897435897436
+    },
+    "1": {
+      "precision": 0.9935897435897436,
+      "recall": 0.9935897435897436,
+      "f1-score": 0.9935897435897436
+    }
+  }
+}
