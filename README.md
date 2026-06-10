@@ -52,7 +52,7 @@ Cette option lance l'API et l'interface directement sur la machine.
 #### Windows PowerShell
 
 ```powershell
-git clone https://github.com/votre-repo/Projet_ML.git
+git clone https://github.com/zakariyaee/Projet_ML.git
 cd Projet_ML
 
 python -m venv venv
@@ -75,7 +75,7 @@ streamlit run app/ui.py
 #### Windows CMD
 
 ```bat
-git clone https://github.com/votre-repo/Projet_ML.git
+git clone https://github.com/zakariyaee/Projet_ML.git
 cd Projet_ML
 
 python -m venv venv
@@ -98,7 +98,7 @@ streamlit run app/ui.py
 #### Linux Et macOS
 
 ```bash
-git clone https://github.com/votre-repo/Projet_ML.git
+git clone https://github.com/zakariyaee/Projet_ML.git
 cd Projet_ML
 
 python3 -m venv venv
@@ -133,7 +133,7 @@ Cette option est recommandée pour la démonstration finale, car elle lance l'AP
 #### Windows, Linux Et macOS
 
 ```bash
-git clone https://github.com/votre-repo/Projet_ML.git
+git clone https://github.com/zakariyaee/Projet_ML.git
 cd Projet_ML
 
 docker-compose up --build
