@@ -924,7 +924,7 @@ with tab1:
     </div>
     <div class="info-row">
         <span class="info-row-key">Déséquilibre</span>
-        <span class="info-row-val">SMOTE + class_weight</span>
+        <span class="info-row-val">Baseline + class_weight</span>
     </div>
     <div class="info-row">
         <span class="info-row-key">Tuning</span>

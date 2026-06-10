@@ -76,8 +76,8 @@ Ce dataset a été constitué pour résoudre un problème de **classification bi
 |-----|------|-------|-------------|------------------|
 | `absolute_magnitude_h` | Numérique (float) | Magnitude (H) | Magnitude absolue de l'astéroïde. Plus H est faible, plus l'objet est grand et/ou réfléchissant. Les PHAs ont généralement H < 22. | 9,17 à 33,20 |
 | `estimated_diameter_min_km` | Numérique (float) | km | Diamètre minimum estimé à partir de la magnitude absolue et d'un albédo supposé | 0,00061 à 38,95 |
-| `diameter_mean_km` ⚙️ | Numérique (float) | km | **Feature ingéniée** : diamètre moyen = (min + max) / 2. Critère NASA #1 (seuil : 0,14 km). Feature la plus prédictive avec `minimum_orbit_intersection`. | 0,00099 à 63,03 |
-| `diameter_uncertainty` ⚙️ | Numérique (float) | km | **Feature ingéniée** : incertitude de mesure = max − min. Grande valeur = mesure peu fiable. | 0,00075 à 48,15 |
+| `diameter_mean_km`  | Numérique (float) | km | **Feature ingéniée** : diamètre moyen = (min + max) / 2. Critère NASA #1 (seuil : 0,14 km). Feature la plus prédictive avec `minimum_orbit_intersection`. | 0,00099 à 63,03 |
+| `diameter_uncertainty`  | Numérique (float) | km | **Feature ingéniée** : incertitude de mesure = max − min. Grande valeur = mesure peu fiable. | 0,00075 à 48,15 |
 
 > **Note** : `estimated_diameter_max_km` est extraite de l'API mais supprimée après feature engineering (remplacée par `diameter_mean_km` et `diameter_uncertainty` plus stables).
 
